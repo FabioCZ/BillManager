@@ -1,7 +1,8 @@
-package com.gottlicher.billmanager
+package com.gottlicher.billmanager.home
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.gottlicher.billmanager.R
 
 class MainActivity : AppCompatActivity() {
 
