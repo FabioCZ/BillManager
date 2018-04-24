@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Bill Manager</string>
+    <string name="title_activity_add_bill">AddBillActivity</string>
 </resources>
