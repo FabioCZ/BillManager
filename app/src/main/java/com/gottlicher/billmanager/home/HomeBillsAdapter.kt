@@ -10,15 +10,13 @@ import com.gottlicher.billmanager.model.Bill
  */
 class HomeBillsAdapter : RecyclerView.Adapter<HomeBillsAdapter.BillViewHolder>() {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BillViewHolder {
-
+        return BillViewHolder(parent);
     }
 
-    override fun onBindViewHolder(holder: BillViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: BillViewHolder, position: Int) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
-
     override fun getItemCount(): Int = 5
 
     class BillViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)

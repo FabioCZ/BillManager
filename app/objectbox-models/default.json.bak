@@ -1,0 +1,63 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:8918069748618149551",
+      "lastPropertyId": "5:5362964215485971757",
+      "name": "Bill",
+      "properties": [
+        {
+          "id": "1:7296803206170632567",
+          "name": "id"
+        },
+        {
+          "id": "2:3595929812242741367",
+          "name": "name"
+        },
+        {
+          "id": "3:2585618877668504524",
+          "name": "dayOfMonthDue"
+        },
+        {
+          "id": "4:785619047781163589",
+          "name": "dayOfMonthAvail"
+        },
+        {
+          "id": "5:5362964215485971757",
+          "name": "appOrWebName"
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:2854821728497830374",
+      "lastPropertyId": "2:7711338867085107997",
+      "name": "PastPaidBill",
+      "properties": [
+        {
+          "id": "1:7023808760703723221",
+          "name": "id"
+        },
+        {
+          "id": "2:7711338867085107997",
+          "indexId": "1:5553302302324246645",
+          "name": "billId"
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "2:2854821728497830374",
+  "lastIndexId": "1:5553302302324246645",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 4,
+  "modelVersionParserMinimum": 4,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}
