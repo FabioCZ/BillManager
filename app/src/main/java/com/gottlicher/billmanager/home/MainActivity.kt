@@ -1,12 +1,12 @@
 package com.gottlicher.billmanager.home
 
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.gottlicher.billmanager.BillManagerApplication
 import com.gottlicher.billmanager.R
+import com.gottlicher.billmanager.dialog.AsyncAlertDialog
 import com.gottlicher.billmanager.model.Bill
 import com.gottlicher.billmanager.model.PastPaidBill
 import io.objectbox.BoxStore
@@ -58,6 +58,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun onPlusClick() = launch(UI) {
         loadBillsIntoView()
+        val res = AsyncAlertDialog (R.string.discard_this_bill, positiveButtonText = R.string.discard, negativeButtonText = R.string.cancel).show(this@MainActivity)
+        toast(res.toString())
 //        val intent = Intent(this@MainActivity, AddBillActivity::class.java)
 //        this@MainActivity.startActivity(intent)
     }

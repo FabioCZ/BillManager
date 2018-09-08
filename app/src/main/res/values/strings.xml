@@ -3,4 +3,7 @@
     <string name="title_activity_add_bill">AddBillActivity</string>
 
     <string name="due">Due: </string>
+    <string name="discard_this_bill">Discard this bill?</string>
+    <string name="discard">Discard</string>
+    <string name="cancel">Cancel</string>
 </resources>

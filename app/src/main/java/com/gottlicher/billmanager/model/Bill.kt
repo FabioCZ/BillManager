@@ -23,7 +23,7 @@ import java.util.*
 
     @Backlink  val pastPaid: ToMany<PastPaidBill>? = null
 
-    var _isPaid = false;
+    var _isPaid = false
     var isPaidThisMonth:Boolean
         get() = _isPaid
         set(value) { _isPaid = value }
