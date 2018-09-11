@@ -6,4 +6,9 @@
     <string name="discard_this_bill">Discard this bill?</string>
     <string name="discard">Discard</string>
     <string name="cancel">Cancel</string>
+    <string name="bill_name">Bill name</string>
+    <string name="frequency">Frequency</string>
+    <string name="due_date">Due Date</string>
+    <string name="available_on">Available on</string>
+    <string name="save">SAVE</string>
 </resources>
