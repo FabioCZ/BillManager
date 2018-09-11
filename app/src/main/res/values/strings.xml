@@ -11,4 +11,6 @@
     <string name="due_date">Due Date</string>
     <string name="available_on">Available on</string>
     <string name="save">SAVE</string>
+    <string name="th">th</string>
+    <string name="notifications">Notifications</string>
 </resources>

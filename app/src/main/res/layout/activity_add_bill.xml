@@ -20,25 +20,29 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" >
 
             <ImageButton
+                android:id="@+id/button_exit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_close_black_24dp"
-                android:background="null"
-                android:tint="@android:color/white"/>
+                android:background="?attr/selectableItemBackground"
+                android:tint="@android:color/white"
+                android:padding="8dp"/>
             <Button
+                android:id="@+id/button_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/save"
                 android:layout_gravity="end"
-                android:background="null"/> <!-- TODO background -->
+                android:background="?attr/selectableItemBackground"/> <!-- TODO background -->
         </android.support.v7.widget.Toolbar>
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/edit_bill_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:inputType="textPersonName"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:text="@string/bill_name" />
 
     </android.support.design.widget.AppBarLayout>
@@ -54,42 +58,117 @@
         app:srcCompat="@drawable/ic_clock_black_24dp" />
 
     <TextView
-        android:id="@+id/due_date_label"
+        android:id="@+id/text_due_label"
         android:layout_width="wrap_content"
         android:layout_height="19dp"
         android:layout_marginStart="16dp"
         android:text="@string/due_date"
+        android:textSize="@dimen/text_14sp"
         app:layout_constraintBottom_toBottomOf="@+id/ic_clock"
         app:layout_constraintStart_toEndOf="@+id/ic_clock"
         app:layout_constraintTop_toTopOf="@+id/ic_clock" />
 
     <TextView
-        android:id="@+id/avaialable_on_label"
+        android:id="@+id/text_avaialable_on_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/available_on"
-        app:layout_constraintStart_toStartOf="@+id/due_date_label"
-        app:layout_constraintTop_toBottomOf="@+id/due_date_label" />
+        android:textSize="@dimen/text_14sp"
+        app:layout_constraintStart_toStartOf="@+id/text_due_label"
+        app:layout_constraintTop_toBottomOf="@+id/text_due_label" />
 
     <View
-        android:id="@+id/view"
+        android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="16dp"
         android:background="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/avaialable_on_label" />
+        app:layout_constraintTop_toBottomOf="@+id/text_avaialable_on_label" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/ic_notification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
         app:srcCompat="@drawable/ic_notifications_black_24dp" />
+
+    <TextView
+        android:id="@+id/text_due_th"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/th"
+        android:textSize="@dimen/text_14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/text_due_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_due_label" />
+
+    <TextView
+        android:id="@+id/text_available_on_th"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/th"
+        android:textSize="@dimen/text_14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/text_avaialable_on_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_avaialable_on_label" />
+
+    <EditText
+        android:id="@+id/edit_due"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginStart="8dp"
+        android:textSize="@dimen/text_14sp"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@+id/text_due_label"
+        app:layout_constraintEnd_toStartOf="@+id/text_due_th"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/text_due_label"
+        app:layout_constraintTop_toTopOf="@+id/text_due_label" />
+
+    <EditText
+        android:id="@+id/edit_available_on"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginStart="8dp"
+        android:textSize="@dimen/text_14sp"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@+id/text_avaialable_on_label"
+        app:layout_constraintEnd_toStartOf="@+id/text_available_on_th"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/text_avaialable_on_label"
+        app:layout_constraintTop_toTopOf="@+id/text_avaialable_on_label" />
+
+    <TextView
+        android:id="@+id/text_notifications_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/notifications"
+        app:layout_constraintBottom_toBottomOf="@+id/ic_notification"
+        app:layout_constraintStart_toEndOf="@+id/ic_notification"
+        app:layout_constraintTop_toTopOf="@+id/ic_notification" />
+
+    <Switch
+        android:id="@+id/switch_notifications"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/text_notifications_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/text_notifications_label"
+        app:layout_constraintTop_toTopOf="@+id/text_notifications_label" />
 
 </android.support.constraint.ConstraintLayout>
