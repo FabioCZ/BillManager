@@ -1,4 +1,4 @@
-package com.gottlicher.billmanager.home
+package com.gottlicher.billmanager.views
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater

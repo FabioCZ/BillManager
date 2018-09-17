@@ -1,174 +1,269 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".home.AddBillActivity">
-
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/appBarLayout2"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="bill"
+            type="com.gottlicher.billmanager.databinding.AddBillModel"/>
+    </data>
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="match_parent"
+        tools:context=".views.AddBillActivity">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" >
-
-            <ImageButton
-                android:id="@+id/button_exit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_close_black_24dp"
-                android:background="?attr/selectableItemBackground"
-                android:tint="@android:color/white"
-                android:padding="8dp"/>
-            <Button
-                android:id="@+id/button_save"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/save"
-                android:layout_gravity="end"
-                android:background="?attr/selectableItemBackground"/> <!-- TODO background -->
-        </android.support.v7.widget.Toolbar>
-
-        <EditText
-            android:id="@+id/edit_bill_name"
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appBarLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay" >
+
+                <ImageButton
+                    android:id="@+id/button_exit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_close_black_24dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:tint="@android:color/white"
+                    android:padding="8dp"/>
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end">
+                    <Button
+                        android:id="@+id/button_save"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/save"
+                        android:layout_gravity="end"
+                        android:background="?attr/selectableItemBackground"/>
+                    <ProgressBar
+                        android:id="@+id/progress_save"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:visibility="gone"/>
+                </RelativeLayout>
+            </android.support.v7.widget.Toolbar>
+
+            <EditText
+                android:id="@+id/edit_bill_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:hint="@string/bill_name"
+                android:text="@{bill.name}"/>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <ImageView
+            android:id="@+id/ic_clock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout2"
+            app:srcCompat="@drawable/ic_clock_black_24dp" />
+
+        <TextView
+            android:id="@+id/text_due_label"
+            android:layout_width="wrap_content"
+            android:layout_height="19dp"
+            android:layout_marginStart="16dp"
+            android:text="@string/due_date"
+            android:textSize="@dimen/text_14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ic_clock"
+            app:layout_constraintStart_toEndOf="@+id/ic_clock"
+            app:layout_constraintTop_toTopOf="@+id/ic_clock" />
+
+        <TextView
+            android:id="@+id/text_avaialable_on_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/available_on"
+            android:textSize="@dimen/text_14sp"
+            app:layout_constraintStart_toStartOf="@+id/text_due_label"
+            app:layout_constraintTop_toBottomOf="@+id/text_due_label" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_avaialable_on_label" />
+
+        <ImageView
+            android:id="@+id/ic_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            app:srcCompat="@drawable/ic_notifications_black_24dp" />
+
+        <TextView
+            android:id="@+id/text_due_th"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:text="@string/bill_name" />
+            android:text="@string/th"
+            android:textSize="@dimen/text_14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_due_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/text_due_label" />
 
-    </android.support.design.widget.AppBarLayout>
+        <TextView
+            android:id="@+id/text_available_on_th"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/th"
+            android:textSize="@dimen/text_14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_avaialable_on_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/text_avaialable_on_label" />
 
-    <ImageView
-        android:id="@+id/ic_clock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout2"
-        app:srcCompat="@drawable/ic_clock_black_24dp" />
+        <EditText
+            android:id="@+id/edit_due"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="8dp"
+            android:textSize="@dimen/text_14sp"
+            android:inputType="number"
+            android:text="@{bill.dayOfMonthDue}"
+            app:layout_constraintBottom_toBottomOf="@+id/text_due_label"
+            app:layout_constraintEnd_toStartOf="@+id/text_due_th"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/text_due_label"
+            app:layout_constraintTop_toTopOf="@+id/text_due_label" />
 
-    <TextView
-        android:id="@+id/text_due_label"
-        android:layout_width="wrap_content"
-        android:layout_height="19dp"
-        android:layout_marginStart="16dp"
-        android:text="@string/due_date"
-        android:textSize="@dimen/text_14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/ic_clock"
-        app:layout_constraintStart_toEndOf="@+id/ic_clock"
-        app:layout_constraintTop_toTopOf="@+id/ic_clock" />
+        <EditText
+            android:id="@+id/edit_available_on"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="8dp"
+            android:textSize="@dimen/text_14sp"
+            android:inputType="number"
+            android:text="@{bill.dayOfMonthAvail}"
+            app:layout_constraintBottom_toBottomOf="@+id/text_avaialable_on_label"
+            app:layout_constraintEnd_toStartOf="@+id/text_available_on_th"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/text_avaialable_on_label"
+            app:layout_constraintTop_toTopOf="@+id/text_avaialable_on_label" />
 
-    <TextView
-        android:id="@+id/text_avaialable_on_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/available_on"
-        android:textSize="@dimen/text_14sp"
-        app:layout_constraintStart_toStartOf="@+id/text_due_label"
-        app:layout_constraintTop_toBottomOf="@+id/text_due_label" />
+        <TextView
+            android:id="@+id/text_notifications_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="16dp"
+            android:text="@string/notifications"
+            app:layout_constraintBottom_toBottomOf="@+id/ic_notification"
+            app:layout_constraintStart_toEndOf="@+id/ic_notification"
+            app:layout_constraintTop_toTopOf="@+id/ic_notification" />
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/darker_gray"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_avaialable_on_label" />
+        <Switch
+            android:id="@+id/switch_notifications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_notifications_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/text_notifications_label"
+            app:layout_constraintTop_toTopOf="@+id/text_notifications_label" />
 
-    <ImageView
-        android:id="@+id/ic_notification"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider"
-        app:srcCompat="@drawable/ic_notifications_black_24dp" />
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_avaialable_on_label" />
 
-    <TextView
-        android:id="@+id/text_due_th"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="@string/th"
-        android:textSize="@dimen/text_14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/text_due_label"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/text_due_label" />
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_notifications_label" />
 
-    <TextView
-        android:id="@+id/text_available_on_th"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="@string/th"
-        android:textSize="@dimen/text_14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/text_avaialable_on_label"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/text_avaialable_on_label" />
+        <ImageView
+            android:id="@+id/ic_apps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider3"
+            app:srcCompat="@drawable/ic_apps_black_24dp" />
 
-    <EditText
-        android:id="@+id/edit_due"
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:layout_marginStart="8dp"
-        android:textSize="@dimen/text_14sp"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="@+id/text_due_label"
-        app:layout_constraintEnd_toStartOf="@+id/text_due_th"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/text_due_label"
-        app:layout_constraintTop_toTopOf="@+id/text_due_label" />
+        <TextView
+            android:id="@+id/text_app_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/app"
+            app:layout_constraintBottom_toBottomOf="@+id/ic_apps"
+            app:layout_constraintStart_toEndOf="@+id/ic_apps"
+            app:layout_constraintTop_toTopOf="@+id/ic_apps" />
 
-    <EditText
-        android:id="@+id/edit_available_on"
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:layout_marginStart="8dp"
-        android:textSize="@dimen/text_14sp"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="@+id/text_avaialable_on_label"
-        app:layout_constraintEnd_toStartOf="@+id/text_available_on_th"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/text_avaialable_on_label"
-        app:layout_constraintTop_toTopOf="@+id/text_avaialable_on_label" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="?attr/selectableItemBackground"
+            app:layout_constraintBottom_toBottomOf="@+id/text_app_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/text_app_label"
+            app:layout_constraintTop_toTopOf="@+id/text_app_label">
 
-    <TextView
-        android:id="@+id/text_notifications_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="16dp"
-        android:text="@string/notifications"
-        app:layout_constraintBottom_toBottomOf="@+id/ic_notification"
-        app:layout_constraintStart_toEndOf="@+id/ic_notification"
-        app:layout_constraintTop_toTopOf="@+id/ic_notification" />
+            <TextView
+                android:id="@+id/text_app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@={bill.app.appName}" />
+            <Space
+                android:layout_width="8dp"
+                android:layout_height="wrap_content" />
 
-    <Switch
-        android:id="@+id/switch_notifications"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/text_notifications_label"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/text_notifications_label"
-        app:layout_constraintTop_toTopOf="@+id/text_notifications_label" />
+            <ImageView
+                android:id="@+id/ic_bill_app"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_weight="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@mipmap/ic_launcher" />
+        </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

@@ -8,11 +8,11 @@
     tools:context="com.gottlicher.billmanager.home.MainActivity">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/mainBillList"
+        android:id="@+id/list_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/mainPlusFab"
+        android:id="@+id/fab_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -23,7 +23,7 @@
         android:tint="@android:color/white"/>
 
     <ProgressBar
-        android:id="@+id/mainProgress"
+        android:id="@+id/progress_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"

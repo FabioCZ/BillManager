@@ -18,7 +18,7 @@ import java.util.*
         val name: String,
         val dayOfMonthDue: Int,
         val dayOfMonthAvail: Int,
-        val appOrWebName: String) : BaseObservable (){
+        val appPackage: String) : BaseObservable (){
     constructor() : this(0,"",0,0,"")
 
     @Backlink  val pastPaid: ToMany<PastPaidBill>? = null

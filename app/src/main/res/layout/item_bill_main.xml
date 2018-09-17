@@ -19,7 +19,7 @@
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toEndOf="@+id/billIcon"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="@{bill.name}" />
+            android:text="@{bill.name}" />
 
         <TextView
             android:id="@+id/billDueLabel"
@@ -39,7 +39,7 @@
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toEndOf="@+id/billDueLabel"
             app:layout_constraintTop_toBottomOf="@+id/billName"
-            tools:text="@{bill.getNextDueDateString()}" />
+            android:text="@{bill.getNextDueDateString()}" />
 
         <ImageButton
             android:id="@+id/billCheckBtn"

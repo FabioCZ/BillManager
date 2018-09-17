@@ -1,4 +1,4 @@
-package com.gottlicher.billmanager.home
+package com.gottlicher.billmanager.views
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -28,10 +28,10 @@ class MainActivity : AppCompatActivity() {
     lateinit var objectBox: BoxStore
 
     var isLoading:Boolean
-        get() = mainProgress.visibility == View.VISIBLE
+        get() = progress_home.visibility == View.VISIBLE
         set(value){
-            mainProgress.visibility = if (value) View.VISIBLE else View.GONE
-            mainBillList.visibility = if(value) View.GONE else View.VISIBLE
+            progress_home.visibility = if (value) View.VISIBLE else View.GONE
+            list_home.visibility = if(value) View.GONE else View.VISIBLE
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,8 +39,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         BillManagerApplication.graph.inject(this)
 
-        mainPlusFab.onClick { onPlusClick() }
-        mainBillList.layoutManager = LinearLayoutManager (this)
+        fab_home.onClick { onPlusClick() }
+        list_home.layoutManager = LinearLayoutManager (this)
         loadBillsIntoView()
     }
 
@@ -52,13 +52,15 @@ class MainActivity : AppCompatActivity() {
             delay(1000)
             billBox.all
         }.await()
-        mainBillList.adapter = HomeBillsAdapter(allBills)
-        mainBillList.adapter.notifyDataSetChanged()
+        list_home.adapter = HomeBillsAdapter(allBills)
+        list_home.adapter.notifyDataSetChanged()
         isLoading = false
     }
 
     private fun onPlusClick() = launch(UI) {
-        loadBillsIntoView()
+//        loadBillsIntoView()
+//        val res = AsyncAlertDialog (R.string.discard_this_bill, positiveButtonText = R.string.discard, negativeButtonText = R.string.cancel).show(this@MainActivity)
+//        toast(res.toString())
         val intent = Intent(this@MainActivity, AddBillActivity::class.java)
         this@MainActivity.startActivity(intent)
     }
@@ -66,7 +68,7 @@ class MainActivity : AppCompatActivity() {
     fun test(){
         var billBox = objectBox.boxFor<Bill>()
 
-        var bill = Bill(name = "Pizza", dayOfMonthDue = 25, dayOfMonthAvail = 10, appOrWebName = "PizzaApp")
+        var bill = Bill(name = "Pizza", dayOfMonthDue = 25, dayOfMonthAvail = 10, appPackage = "PizzaApp")
         bill.pastPaid?.add(PastPaidBill(paid = Date(2018,1,1)))
 
 

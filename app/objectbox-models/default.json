@@ -5,7 +5,7 @@
   "entities": [
     {
       "id": "1:8918069748618149551",
-      "lastPropertyId": "6:4539373469456607531",
+      "lastPropertyId": "7:5643865330497031274",
       "name": "Bill",
       "properties": [
         {
@@ -25,12 +25,12 @@
           "name": "dayOfMonthAvail"
         },
         {
-          "id": "5:5362964215485971757",
-          "name": "appOrWebName"
-        },
-        {
           "id": "6:4539373469456607531",
           "name": "_isPaid"
+        },
+        {
+          "id": "7:5643865330497031274",
+          "name": "appPackage"
         }
       ],
       "relations": []
@@ -65,7 +65,9 @@
   "modelVersionParserMinimum": 4,
   "retiredEntityUids": [],
   "retiredIndexUids": [],
-  "retiredPropertyUids": [],
+  "retiredPropertyUids": [
+    5362964215485971757
+  ],
   "retiredRelationUids": [],
   "version": 1
 }
