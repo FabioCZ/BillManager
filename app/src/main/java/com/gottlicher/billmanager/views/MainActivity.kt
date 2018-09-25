@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
             billBox.all
         }.await()
         list_home.adapter = HomeBillsAdapter(allBills)
-        list_home.adapter.notifyDataSetChanged()
+//        list_home.adapter.notifyDataSetChanged()
         isLoading = false
     }
 

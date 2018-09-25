@@ -1,5 +1,6 @@
 package com.gottlicher.billmanager.views
 
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -47,6 +48,7 @@ class AddBillActivity : AppCompatActivity() {
 
         button_save.onClick { onSaveClick() }
         button_exit.onClick { finish() }
+        appInfoContainer.onClick { onAppClick() }
     }
 
     private fun onSaveClick() = launch(UI) {
@@ -65,6 +67,11 @@ class AddBillActivity : AppCompatActivity() {
         }
         this@AddBillActivity.finish()
 
+    }
+
+    private fun onAppClick() {
+        val intent = Intent(this, AppPickerActivity::class.java)
+        startActivity(intent)
     }
 
 }

@@ -16,4 +16,6 @@
     <string name="app">App</string>
     <string name="tap_here_to_select_app">Tap here to select App</string>
     <string name="error_saving_bill">There was an error saving your bill</string>
+    <string name="title_activity_app_picker">AppPickerActivity</string>
+    <string name="search_apps">Search Apps</string>
 </resources>
