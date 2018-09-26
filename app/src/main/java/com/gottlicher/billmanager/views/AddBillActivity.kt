@@ -1,5 +1,6 @@
 package com.gottlicher.billmanager.views
 
+import android.app.Activity
 import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
@@ -20,6 +21,8 @@ import org.jetbrains.anko.sdk25.coroutines.onClick
 import org.jetbrains.anko.toast
 import javax.inject.Inject
 
+const val REQUEST_CODE_PICK_APP = 1
+const val EXTRA_APP_PACKAGE = "EXTRA_APP_PACKAGE"
 class AddBillActivity : AppCompatActivity() {
 
     @Inject
@@ -51,6 +54,13 @@ class AddBillActivity : AppCompatActivity() {
         appInfoContainer.onClick { onAppClick() }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE_PICK_APP) {
+            val packageName = data?.getStringExtra(EXTRA_APP_PACKAGE)
+            toast(packageName ?: "NA")
+        }
+    }
+
     private fun onSaveClick() = launch(UI) {
         isLoading = true
 
@@ -71,7 +81,7 @@ class AddBillActivity : AppCompatActivity() {
 
     private fun onAppClick() {
         val intent = Intent(this, AppPickerActivity::class.java)
-        startActivity(intent)
+        startActivityForResult(intent, REQUEST_CODE_PICK_APP)
     }
 
 }

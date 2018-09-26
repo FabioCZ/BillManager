@@ -33,7 +33,7 @@
                     android:hint="@string/search_apps"
                     android:drawableStart="@drawable/ic_search_black_24dp"
                     android:drawableTint="@android:color/white"
-                    android:text="@{model.searchText}" />
+                    android:text="@={model.searchText}" />
         </android.support.v7.widget.Toolbar>
         </android.support.design.widget.AppBarLayout>
 

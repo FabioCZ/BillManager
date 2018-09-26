@@ -23,47 +23,56 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
+                app:contentInsetStart="8dp"
                 app:popupTheme="@style/AppTheme.PopupOverlay" >
 
-                <ImageButton
-                    android:id="@+id/button_exit"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_close_black_24dp"
-                    android:background="?attr/selectableItemBackground"
-                    android:tint="@android:color/white"
-                    android:padding="8dp"/>
-
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end">
-                    <Button
-                        android:id="@+id/button_save"
+                    android:weightSum="1"
+                    android:gravity="center_vertical">
+                    <ImageButton
+                        android:id="@+id/button_exit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/save"
-                        android:layout_gravity="end"
-                        android:background="?attr/selectableItemBackground"/>
-                    <ProgressBar
-                        android:id="@+id/progress_save"
+                        android:src="@drawable/ic_close_black_24dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:tint="@android:color/white"
+                        android:padding="8dp"/>
+
+                    <EditText
+                        android:id="@+id/edit_bill_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:hint="@string/bill_name"
+                        android:inputType="textPersonName"
+                        android:text="@{bill.name}" />
+
+                    <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:visibility="gone"/>
-                </RelativeLayout>
+                        android:layout_gravity="end">
+                        <Button
+                            android:id="@+id/button_save"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/save"
+                            android:layout_gravity="end"
+                            android:background="?attr/selectableItemBackground"/>
+                        <ProgressBar
+                            android:id="@+id/progress_save"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:visibility="gone"/>
+                    </RelativeLayout>
+                </LinearLayout>
             </android.support.v7.widget.Toolbar>
 
-            <EditText
-                android:id="@+id/edit_bill_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:hint="@string/bill_name"
-                android:text="@{bill.name}"/>
+
 
         </android.support.design.widget.AppBarLayout>
 
